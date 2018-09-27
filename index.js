@@ -54,6 +54,10 @@ function ScrollDirection (cb,options) {
     }
   });
 
+  obj.destroy = function () {
+    window.removeEventListener('scroll',obj.listener);
+  };
+
   return obj;
 }
 
