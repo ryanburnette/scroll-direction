@@ -1,0 +1,23 @@
+{
+  "name": "@ryanburnette/scroll-direction",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "author": "Ryan Burnette <ryan.burnette@gmail.com>",
+  "license": "ISC",
+  "peerDependencies": {
+    "lodash.throttle": "^4.1.1",
+    "lodash.uniq": "^4.5.0"
+  },
+  "devDependencies": {
+    "webpack": "^4.20.2",
+    "webpack-cli": "^3.1.1"
+  },
+  "dependencies": {
+    "lodash.throttle": "^4.1.1",
+    "lodash.uniq": "^4.5.0"
+  },
+  "scripts": {
+    "build": "webpack"
+  }
+}
