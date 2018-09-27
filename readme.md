@@ -13,7 +13,7 @@ var s = new ScrollDirection(function (dir) {
 })
 ```
 
-## Options
+### Options
 
 There are two options, series and throttle. Tweak the options to get the
 desired behavior.
@@ -26,7 +26,7 @@ var options = {
 new ScrollDirection(callback,options)
 ```
 
-## Destroy
+### Destroy
 
 ```javascript
 s.destroy()
