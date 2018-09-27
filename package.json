@@ -1,6 +1,6 @@
 {
   "name": "@ryanburnette/scroll-direction",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Gracefully detect scroll direction.",
   "main": "scroll-direction.js",
   "author": "Ryan Burnette <ryan.burnette@gmail.com>",
@@ -15,6 +15,6 @@
     "lodash.uniq": "^4.5.0"
   },
   "scripts": {
-    "prepare": "webpack && NODE_ENV=production webpack"
+    "build": "webpack && NODE_ENV=production webpack"
   }
 }
