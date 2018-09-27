@@ -49,18 +49,16 @@ function ScrollDirection (cb,options) {
     return false;
   };
 
-  var throttled = throttle(function () {
-      obj.series.push(obj.handler());
-      obj.seriesClean();
-      var ud = obj.seriesUniq();
-      if (ud) {
-        cb(ud);
-      }
-    },obj.options.throttle);
+  obj.listener = throttle(function () {
+    obj.series.push(obj.handler());
+    obj.seriesClean();
+    var ud = obj.seriesUniq();
+    if (ud) {
+      cb(ud);
+    }
+  },obj.options.throttle);
 
-  obj.listener = window.addEventListener('scroll', function () {
-    throttled();
-  });
+  window.addEventListener('scroll',obj.listener);
 
   obj.destroy = function () {
     window.removeEventListener('scroll',obj.listener);
