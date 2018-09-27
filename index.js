@@ -16,6 +16,8 @@ function getScrollPos () {
 function ScrollDirection (cb,options) {
   var obj = {};
 
+  obj.UP = UP;
+  obj.DOWN = DOWN;
   obj.scrollPos = getScrollPos();
   obj.series = [];
   obj.options = options || DEFAULTS;
@@ -35,7 +37,9 @@ function ScrollDirection (cb,options) {
   };
 
   obj.seriesClean = function () {
-    obj.series = arr.slice(Math.max(arr.length - obj.options.series));
+    if (obj.series.length >= obj.options.series) {
+      obj.series = obj.series.slice(Math.max(obj.series.length - obj.options.series));
+    }
   };
 
   obj.seriesUniq = function () {
@@ -45,13 +49,17 @@ function ScrollDirection (cb,options) {
     return false;
   };
 
+  var throttled = throttle(function () {
+      obj.series.push(obj.handler());
+      obj.seriesClean();
+      var ud = obj.seriesUniq();
+      if (ud) {
+        cb(ud);
+      }
+    },obj.options.throttle);
+
   obj.listener = window.addEventListener('scroll', function () {
-    series.push(obj.handler());
-    obj.seriesClean();
-    var ud = obj.seriesUniq();
-    if (ud) {
-      cb(ud);
-    }
+    throttled();
   });
 
   obj.destroy = function () {

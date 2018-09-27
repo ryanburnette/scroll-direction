@@ -6,6 +6,7 @@
   "author": "Ryan Burnette <ryan.burnette@gmail.com>",
   "license": "ISC",
   "devDependencies": {
+    "http-server": "^0.11.1",
     "webpack": "^4.20.2",
     "webpack-cli": "^3.1.1"
   },
@@ -14,6 +15,6 @@
     "lodash.uniq": "^4.5.0"
   },
   "scripts": {
-    "build": "webpack"
+    "prepare": "webpack && NODE_ENV=production webpack"
   }
 }
