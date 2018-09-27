@@ -15,30 +15,27 @@ function getScrollPos () {
 
 function ScrollDirection (cb,options) {
   var obj = {};
+  var series = [];
+  var options = options || DEFAULTS;
+  var scrollPos = getScrollPos();
 
-  obj.UP = UP;
-  obj.DOWN = DOWN;
-  obj.scrollPos = getScrollPos();
-  obj.series = [];
-  obj.options = options || DEFAULTS;
-
-  obj.handler = function () {
+  function lastAction () {
     var result = DOWN;
 
     var newScrollPos = getScrollPos();
 
-    if (newScrollPos > obj.scrollPos) {
+    if (newScrollPos > scrollPos) {
       result = UP;
     }
 
-    obj.scrollPos = newScrollPos;
+    scrollPos = newScrollPos;
 
     return result;
   };
 
   obj.seriesClean = function () {
-    if (obj.series.length >= obj.options.series) {
-      obj.series = obj.series.slice(Math.max(obj.series.length - obj.options.series));
+    if (series.length >= options.series) {
+      series = series.slice(Math.max(series.length - options.series));
     }
   };
 
@@ -50,13 +47,13 @@ function ScrollDirection (cb,options) {
   };
 
   obj.listener = throttle(function () {
-    obj.series.push(obj.handler());
-    obj.seriesClean();
+    series.push(lastEventType());
+    seriesClean();
     var ud = obj.seriesUniq();
     if (ud) {
       cb(ud);
     }
-  },obj.options.throttle);
+  },options.throttle);
 
   window.addEventListener('scroll',obj.listener);
 
