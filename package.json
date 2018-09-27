@@ -1,6 +1,6 @@
 {
   "name": "@ryanburnette/scroll-direction",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Gracefully detect scroll direction.",
   "main": "scroll-direction.js",
   "author": "Ryan Burnette <ryan.burnette@gmail.com>",

@@ -13,13 +13,13 @@ function getScrollPos () {
   return (document.body.getBoundingClientRect()).top;
 }
 
-function ScrollDirection (cb,options) {
+function ScrollDirection (cb,_options) {
   var obj = {};
   var series = [];
-  var options = options || DEFAULTS;
+  var options = _options || DEFAULTS;
   var scrollPos = getScrollPos();
 
-  function lastAction () {
+  function lastEventType () {
     var result = DOWN;
 
     var newScrollPos = getScrollPos();
@@ -31,17 +31,17 @@ function ScrollDirection (cb,options) {
     scrollPos = newScrollPos;
 
     return result;
-  };
+  }
 
-  obj.seriesClean = function () {
+  seriesClean = function () {
     if (series.length >= options.series) {
       series = series.slice(Math.max(series.length - options.series));
     }
   };
 
-  obj.seriesUniq = function () {
-    if ( uniq(obj.series).length <= 1 ) {
-      return obj.series[0];
+  seriesUniq = function () {
+    if ( uniq(series).length <= 1 ) {
+      return series[0];
     }
     return false;
   };
@@ -49,7 +49,7 @@ function ScrollDirection (cb,options) {
   obj.listener = throttle(function () {
     series.push(lastEventType());
     seriesClean();
-    var ud = obj.seriesUniq();
+    var ud = seriesUniq();
     if (ud) {
       cb(ud);
     }
