@@ -1,5 +1,7 @@
 # Scroll Direction
 
+[![npm version](https://badge.fury.io/js/%40ryanburnette%2Fscroll-direction.svg)](https://badge.fury.io/js/%40ryanburnette%2Fscroll-direction)
+
 This library is my approach to gracefully detecting vertical scroll direction
 in a browser. It works by keeping track of a series of throttled detect events,
 then invoking a callback with a direction argument once the series contains
