@@ -7,7 +7,7 @@ var ext = mode === 'production' ? '.min.js' : '.js'
 module.exports = {
   entry: './index.js',
   output: {
-    path: path.resolve(__dirname,'built'),
+    path: path.resolve(__dirname,'dist'),
     filename: `scroll-direction${ext}`,
     library: 'ScrollDirection',
     libraryTarget: 'umd'

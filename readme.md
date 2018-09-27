@@ -31,3 +31,21 @@ new ScrollDirection(callback,options)
 ```javascript
 s.destroy()
 ```
+
+## Installation
+
+As a library consumed and packaged by something like Webpack or Rollup.
+
+```
+npm install @ryanburnette/scroll-direction
+```
+
+```javascript
+var ScrollDirection = require('@ryanburnette/scroll-direction')
+```
+
+From a CDN.
+
+```
+<script src="https://unpkg.com/@ryanburnette/scroll-direction/dist/scroll-direction.min.js" type="text/javascript"></script>
+```
