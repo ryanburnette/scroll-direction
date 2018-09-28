@@ -49,5 +49,5 @@ var ScrollDirection = require('@ryanburnette/scroll-direction')
 From a CDN.
 
 ```
-<script src="https://unpkg.com/@ryanburnette/scroll-direction@1.0.4/dist/scroll-direction.min.js" type="text/javascript"></script>
+<script src="https://unpkg.com/@ryanburnette/scroll-direction@1.0.5/dist/scroll-direction.min.js" type="text/javascript"></script>
 ```

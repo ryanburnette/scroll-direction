@@ -33,20 +33,20 @@ function ScrollDirection (cb,_options) {
     return result;
   }
 
-  seriesClean = function () {
+  function seriesClean () {
     if (series.length >= options.series) {
       series = series.slice(Math.max(series.length - options.series));
     }
   };
 
-  seriesUniq = function () {
+  function seriesUniq () {
     if ( uniq(series).length <= 1 ) {
       return series[0];
     }
     return false;
   };
 
-  obj.listener = throttle(function () {
+  var listener = throttle(function () {
     series.push(lastEventType());
     seriesClean();
     var ud = seriesUniq();
@@ -55,10 +55,10 @@ function ScrollDirection (cb,_options) {
     }
   },options.throttle);
 
-  window.addEventListener('scroll',obj.listener);
+  window.addEventListener('scroll',listener);
 
   obj.destroy = function () {
-    window.removeEventListener('scroll',obj.listener);
+    window.removeEventListener('scroll',listener);
   };
 
   return obj;
