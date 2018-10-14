@@ -1,6 +1,6 @@
 {
   "name": "@ryanburnette/scroll-direction",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Gracefully detect scroll direction.",
   "main": "scroll-direction.js",
   "author": "Ryan Burnette <ryan.burnette@gmail.com>",
@@ -17,5 +17,10 @@
   "scripts": {
     "build": "webpack && NODE_ENV=production webpack",
     "prepare": "npm run build"
+  },
+  "homepage": "https://github.com/ryanburnette/scroll-direction#readme",
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/ryanburnette/scroll-direction.git"
   }
 }
